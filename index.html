@@ -22,6 +22,10 @@
   <script type="text/javascript">
     function onCaptchaSuccess (response) {
       console.log(response);
+      $http.post('https://www.google.com/recaptcha/api/siteverify', {
+        secret: '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe',
+        response: response
+      });
     }
   </script>
 </body>
