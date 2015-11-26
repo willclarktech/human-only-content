@@ -1,5 +1,5 @@
 (function () {
-  function onCaptchaSuccess () {
-    console.log("Success!");
-  }
+  var onCaptchaSuccess = function (response) {
+    console.log(response);
+  };
 }());
