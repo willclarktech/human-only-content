@@ -5,10 +5,10 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body id="body">
-  <div class="container">
+  <div class="container" style="margin: 50px;">
 
     <div id="verification">
-      <form action="?" method="POST" style="margin: 50px;">
+      <form action="?" method="POST">
         Click for content.
         <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onCaptchaSuccess"></div>
       </form>
@@ -29,12 +29,12 @@
     function onCaptchaSuccess (response) {
       // Response should be verified on server
       $('#content').show();
-      $('.g-recaptcha').hide();
+      $('#verification').hide();
     }
     function reset () {
       $('#content').hide();
       grecaptcha.reset();
-      $('.g-recaptcha').show();
+      $('#verification').show();
     }
   </script>
 </body>
