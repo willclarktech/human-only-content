@@ -5,21 +5,20 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body>
+<body ng-controller="VerificationController as verifier">
 
   <div id="verification">
     <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
-      <br>
-      <input type="submit" value="Submit">
+      <div class="g-recaptcha center-block" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onCaptchaSuccess"></div>
     </form>
   </div>
 
-  <div id="content">
-    <img src="http://i.giphy.com/TL5XQpSpASo4U.gif" alt="XXX-CLASSIFIED-XXX">
+  <div id="content" ng-show="verifier.humanVerified">
+    <img src="http://i.giphy.com/TL5XQpSpASo4U.gif" alt="XXX-CLASSIFIED-XXX" class="center-block">
   </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="verifier.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
