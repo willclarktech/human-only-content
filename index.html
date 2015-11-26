@@ -3,8 +3,6 @@
 <head>
   <title>Human Only Content</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script type="text/javascript" src="verifier.js"></script>
 </head>
 <body ng-controller="VerificationController as verifier">
 
@@ -18,7 +16,13 @@
     <img src="http://i.giphy.com/TL5XQpSpASo4U.gif" alt="XXX-CLASSIFIED-XXX" class="center-block">
   </div>
 
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript">
+    function onCaptchaSuccess (response) {
+      console.log(response);
+    }
+  </script>
 </body>
 </html>
