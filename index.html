@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="humanOnlyContent">
+<html>
 <head>
   <title>Human Only Content</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<body ng-controller="VerificationController as verifier">
+<body id="body">
 
   <div id="verification">
     <form action="?" method="POST">
@@ -12,20 +12,21 @@
     </form>
   </div>
 
-  <div id="content" ng-show="verifier.humanVerified">
+  <div id="content" style="display: none;">
     <img src="http://i.giphy.com/TL5XQpSpASo4U.gif" alt="XXX-CLASSIFIED-XXX" class="center-block">
+    <button class="btn btn-primary" onclick="reset();">Reset</button>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript">
     function onCaptchaSuccess (response) {
-      console.log(response);
-      $http.post('https://www.google.com/recaptcha/api/siteverify', {
-        secret: '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe',
-        response: response
-      });
+      // Response should be verified on server
+      $('#content').show();
+    }
+    function reset () {
+      $('#content').hide();
+      grecaptcha.reset();
     }
   </script>
 </body>
